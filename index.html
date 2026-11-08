@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06100e">
+<title>QURAN90 · ৯০ দিনের কুরআন মুখস্থ চ্যালেঞ্জ</title>
+<meta name="description" content="৯০ দিনে ধাপে ধাপে কুরআনের নির্বাচিত অংশ মুখস্থ করার চ্যালেঞ্জ। প্রতিদিনের পাঠ, তিলাওয়াত, পুনরাবৃত্তি ও সম্পন্ন সনদ।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Cormorant+Garamond:wght@600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#06100e;--panel:#0c1a17;--panel2:#11231f;--line:#1f3b34;--em:#22a07c;--em2:#5fd3ae;--gold:#d8b45a;--gold2:#f2d98f;--text:#eef3ef;--muted:#8fa89f;--bad:#e5645a}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:"Hind Siliguri",system-ui,sans-serif;line-height:1.6;min-height:100vh;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cg fill='none' stroke='%23d8b45a' stroke-opacity='.07'%3E%3Crect x='25' y='25' width='40' height='40'/%3E%3Crect x='25' y='25' width='40' height='40' transform='rotate(45 45 45)'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(900px 420px at 80% -8%,rgba(34,160,124,.16),transparent 60%)}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header.top{position:sticky;top:0;z-index:30;background:rgba(6,16,14,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.bar{display:flex;align-items:center;gap:14px;height:60px}
+.logo{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:25px;letter-spacing:.12em;color:var(--gold2);text-decoration:none}
+.logo b{color:var(--em2)}
+.sp{flex:1}
+.btn{border:0;border-radius:11px;padding:11px 22px;font-weight:600;cursor:pointer;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1b1405}
+.btn.em{background:linear-gradient(135deg,var(--em2),var(--em));color:#03211a}
+.btn.ghost{background:var(--panel2);border:1px solid var(--line)}
+.btn.sm{padding:6px 14px;font-size:13.5px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.hero{padding:56px 0 34px;display:grid;grid-template-columns:1.3fr 1fr;gap:34px;align-items:center}
+.kick{color:var(--gold);font-weight:600;letter-spacing:.04em;font-size:14px}
+.hero h1{font-size:clamp(32px,5.4vw,56px);line-height:1.18;margin:10px 0 14px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero p{color:var(--muted);max-width:52ch;margin-bottom:24px;font-size:17px}
+.ring{width:210px;height:210px;margin:0 auto;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring .num b{font-size:46px;line-height:1;color:var(--gold2);display:block}
+.ring .num small{color:var(--muted);font-size:13px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding:22px 0}
+.feat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.feat i{font-style:normal;font-size:26px}
+.feat h3{margin:8px 0 4px;font-size:17px}
+.feat p{color:var(--muted);font-size:14.5px}
+.sec{padding:24px 0}
+.sec h2{font-size:26px;margin-bottom:6px}
+.sec .sub{color:var(--muted);margin-bottom:16px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font-size:13.5px;color:var(--muted);margin:12px 0 4px}
+input,select{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.msg{font-size:14px;min-height:20px;margin-top:10px}.msg.bad{color:var(--bad)}.msg.ok{color:var(--em2)}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+/* dashboard */
+#dash{display:none}
+.dtop{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:26px 0 8px}
+.dtop .ring{width:130px;height:130px;margin:0}
+.dtop .ring .num b{font-size:30px}
+.dtop h2{font-size:24px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-size:13.5px;color:var(--muted)}
+.stat b{display:block;font-size:20px;color:var(--gold2);line-height:1.2}
+.cols{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;align-items:start}
+.lesson h3{font-size:20px;margin-bottom:2px}
+.seg{margin:10px 0 4px;color:var(--gold);font-weight:600}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.ctl select{width:auto;padding:7px 10px}
+.ay{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start;padding:14px 4px;border-bottom:1px solid var(--line)}
+.ay:last-child{border:0}
+.ay.on{background:linear-gradient(90deg,rgba(216,180,90,.12),transparent);border-radius:10px}
+.ay .n{width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-size:12px;color:var(--gold2);margin-top:6px}
+.ay .t{font-family:"Amiri Quran","Amiri",serif;font-size:31px;line-height:2.1;direction:rtl;text-align:right;transition:filter .2s}
+.hide .ay .t{filter:blur(9px);cursor:pointer}
+.hide .ay .t.rev{filter:none}
+.ay button.p{background:var(--panel2);border:1px solid var(--line);border-radius:50%;width:36px;height:36px;cursor:pointer;margin-top:4px}
+.bism{font-family:"Amiri Quran",serif;font-size:26px;text-align:center;color:var(--gold2);padding:6px 0 10px;direction:rtl}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:7px}
+.d{aspect-ratio:1;border-radius:10px;border:1px solid var(--line);background:var(--panel2);cursor:pointer;font-size:13.5px;position:relative;color:var(--muted)}
+.d.done{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1b1405;border:0;font-weight:700}
+.d.appr::after{content:"✓";position:absolute;right:2px;top:-1px;font-size:11px;color:#03361f;font-weight:700}
+.d.today{border:2px solid var(--em2);color:var(--text)}
+.d.lock{opacity:.35;cursor:not-allowed}
+.d.sel{outline:2px solid var(--gold2);outline-offset:2px}
+.d.rest{font-size:11px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--panel2);border-radius:999px;padding:5px 14px;cursor:pointer;font-size:13.5px}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.bd{border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:13px;color:var(--muted);text-align:center;min-width:74px}
+.bd.on{border-color:var(--gold);color:var(--gold2);background:rgba(216,180,90,.08)}
+.bd i{display:block;font-style:normal;font-size:22px}
+dialog{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:18px;padding:0;width:min(560px,94vw);max-height:92vh;overflow:auto;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.78)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line)}
+.dh h2{font-size:18px}.x{background:none;border:0;font-size:24px;cursor:pointer;color:var(--muted)}
+.db{padding:18px}
+.code{font-family:ui-monospace,monospace;font-size:30px;letter-spacing:.14em;text-align:center;color:var(--gold2);background:var(--ink);border:1px dashed var(--gold);border-radius:12px;padding:14px;margin:12px 0}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:24px 0 40px;color:var(--muted);font-size:13.5px;text-align:center}
+.demo{background:#3a2c0c;color:var(--gold2);text-align:center;font-size:14px;padding:6px;display:none}
+#cv{width:100%;border-radius:10px;border:1px solid var(--line)}
+@media(max-width:820px){.hero,.cols,.two{grid-template-columns:1fr}.dtop{grid-template-columns:1fr;justify-items:center;text-align:center}.stats{justify-content:center}.ring{width:170px;height:170px}.ay .t{font-size:27px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body>*:not(#printCert){display:none!important}}
+</style>
+<script src="config.js"></script>
+</head>
+<body>
+<div class="demo" id="demo">ডেমো মোড: এখানকার কিছুই সেভ হচ্ছে না। আসল সাইটে কোড দিয়ে ঢুকতে হবে।</div>
+<header class="top"><div class="wrap bar">
+  <a class="logo" href="./">QURAN<b>90</b></a><span class="sp"></span>
+  <button class="btn ghost sm" id="vbtn">সনদ যাচাই</button>
+  <button class="btn gold sm" id="lbtn" hidden>লগআউট</button>
+</div></header>
+
+<main class="wrap" id="land">
+  <section class="hero">
+    <div>
+      <div class="kick">৯০ দিনের চ্যালেঞ্জ</div>
+      <h1>প্রতিদিন একটু একটু করে<br><em>কুরআন মুখস্থ</em></h1>
+      <p>প্রতিদিনের নির্দিষ্ট পাঠ, শুনে শুনে তিলাওয়াত, পুনরাবৃত্তির তালিকা আর অগ্রগতি। ৯০ দিন শেষে উস্তাদের অনুমোদনে সম্পন্ন সনদ।</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn gold" href="#join">চ্যালেঞ্জ শুরু করুন</a><a class="btn ghost" href="?demo=1">ডেমো দেখুন</a></div>
+    </div>
+    <div class="ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#1f3b34" stroke-width="9"/><circle cx="60" cy="60" r="52" fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="245"/><defs><linearGradient id="g"><stop offset="0" stop-color="#f2d98f"/><stop offset="1" stop-color="#22a07c"/></linearGradient></defs></svg><div class="num"><div><b>৯০</b><small>দিন</small></div></div></div>
+  </section>
+
+  <section class="grid3">
+    <div class="feat"><i>📖</i><h3>প্রতিদিনের পাঠ</h3><p>উস্তাদের ঠিক করা ছোট ছোট অংশ, আয়াত ধরে ধরে।</p></div>
+    <div class="feat"><i>🎧</i><h3>শুনে শুনে মুখস্থ</h3><p>প্রতিটি আয়াত শুনুন, ৩, ৫ বা ১০ বার পুনরাবৃত্তিসহ।</p></div>
+    <div class="feat"><i>🧠</i><h3>পরীক্ষা মোড</h3><p>লেখা ঝাপসা করে নিজেকে যাচাই করুন, ট্যাপ করলে দেখুন।</p></div>
+    <div class="feat"><i>🔁</i><h3>পুনরাবৃত্তি</h3><p>আগের দিনগুলো কখন আবার পড়বেন, সাইট মনে করিয়ে দেবে।</p></div>
+    <div class="feat"><i>🏅</i><h3>সম্পন্ন সনদ</h3><p>৯০ দিন শেষে উস্তাদের অনুমোদনে কোডসহ সনদ।</p></div>
+    <div class="feat"><i>🔒</i><h3>গোপনীয়তা</h3><p>শুধু নাম আর শ্রেণি। ছবি, ফোন নম্বর বা কণ্ঠ লাগে না।</p></div>
+  </section>
+
+  <section class="sec" id="join">
+    <h2>শুরু করুন বা ফিরে আসুন</h2>
+    <p class="sub">নতুন হলে নাম আর শ্রেণি দিন। আগে থেকে শুরু করলে নিজের গোপন কোড দিয়ে ঢুকুন।</p>
+    <div class="two">
+      <div class="box"><b>নতুন ছাত্র / ছাত্রী</b>
+        <label for="rn">নাম (বা ডাকনাম)</label><input id="rn" maxlength="40" autocomplete="off">
+        <label for="rc">শ্রেণি</label><input id="rc" maxlength="20" placeholder="যেমন: ৫ম শ্রেণি" autocomplete="off">
+        <button class="btn gold" id="rb" style="margin-top:16px;width:100%">চ্যালেঞ্জে যোগ দিন</button>
+        <div class="msg" id="rm"></div>
+        <p class="note">১৮ বছরের কম হলে অভিভাবকের অনুমতিতে যোগ দিন। আমরা শুধু নাম আর শ্রেণি রাখি।</p></div>
+      <div class="box"><b>আগে শুরু করেছি</b>
+        <label for="lc">আমার গোপন কোড</label><input id="lc" maxlength="16" autocomplete="off" style="font-family:ui-monospace,monospace;letter-spacing:.1em">
+        <button class="btn em" id="lb" style="margin-top:16px;width:100%">ঢুকুন</button>
+        <div class="msg" id="lm"></div>
+        <p class="note">কোড হারিয়ে ফেললে উস্তাদকে জানান। কোডটা কাউকে দেবেন না।</p></div>
+    </div>
+  </section>
+</main>
+
+<main class="wrap" id="dash">
+  <div class="dtop">
+    <div class="ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#1f3b34" stroke-width="9"/><circle id="arc" cx="60" cy="60" r="52" fill="none" stroke="url(#g2)" stroke-width="9" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"/><defs><linearGradient id="g2"><stop offset="0" stop-color="#f2d98f"/><stop offset="1" stop-color="#22a07c"/></linearGradient></defs></svg><div class="num"><div><b id="pct">০%</b><small id="pcs">০/৯০</small></div></div></div>
+    <div><h2 id="hi"></h2><p style="color:var(--muted)" id="sub"></p>
+      <div class="stats"><div class="stat"><small>আজ</small><b id="s1">দিন ১</b></div><div class="stat"><small>টানা</small><b id="s2">০ দিন</b></div><div class="stat"><small>মুখস্থ</small><b id="s3">০</b></div><div class="stat"><small>উস্তাদ শুনেছেন</small><b id="s4">০</b></div></div></div>
+  </div>
+  <div class="cols">
+    <div>
+      <div class="box lesson" id="lesson"></div>
+      <div class="box" style="margin-top:18px"><b>৯০ দিনের পথ</b><p class="note" style="margin:4px 0 12px">সোনালি = মুখস্থ, ✓ = উস্তাদ শুনেছেন, সবুজ রেখা = আজ</p><div class="days" id="days"></div></div>
+    </div>
+    <div>
+      <div class="box"><b>আজকের পুনরাবৃত্তি</b><p class="note" style="margin:4px 0 10px">আগের পাঠ আবার না পড়লে ভুলে যাওয়া সহজ।</p><div class="chips" id="rev"></div></div>
+      <div class="box" style="margin-top:18px"><b>অর্জন</b><div class="badges" id="bds" style="margin-top:10px"></div></div>
+      <div class="box" style="margin-top:18px" id="certbox"></div>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap">QURAN90 · <span id="org">TechCraft Digital Solutions</span><br>এই চ্যালেঞ্জে শুধু অংশ নেওয়ার ও সম্পন্ন করার স্বীকৃতি দেওয়া হয়। এটি হাফেজ উপাধি নয়।</div></footer>
+
+<dialog id="cd"><div class="dh"><h2>আপনার গোপন কোড</h2><button class="x" data-close aria-label="বন্ধ">×</button></div>
+  <div class="db"><p>এই কোড দিয়েই পরে ঢুকবেন। এখনই কোথাও লিখে রাখুন আর উস্তাদ বা অভিভাবককে দিন।</p><div class="code" id="codeV"></div>
+  <div style="display:flex;gap:10px"><button class="btn ghost" id="cpy">কপি করুন</button><button class="btn gold" id="go" style="flex:1">বুঝেছি, শুরু করি</button></div></div></dialog>
+
+<dialog id="vd"><div class="dh"><h2>সনদ যাচাই</h2><button class="x" data-close aria-label="বন্ধ">×</button></div>
+  <div class="db"><label for="vc" style="margin-top:0">সনদ নম্বর</label><input id="vc" maxlength="20" placeholder="Q90-XXXXXXXX" style="font-family:ui-monospace,monospace">
+  <button class="btn gold" id="vb" style="margin-top:14px;width:100%">যাচাই করুন</button><div class="msg" id="vm"></div></div></dialog>
+
+<dialog id="sd" style="width:min(900px,96vw)"><div class="dh"><h2>আপনার সম্পন্ন সনদ</h2><button class="x" data-close aria-label="বন্ধ">×</button></div>
+  <div class="db"><canvas id="cv" width="1600" height="1130"></canvas>
+  <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn gold" id="dlp">ছবি হিসেবে নামান (PNG)</button><button class="btn ghost" id="prt">প্রিন্ট / PDF</button></div></div></dialog>
+<div id="printCert" style="display:none"></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getFirestore,doc,getDoc,setDoc,updateDoc,arrayUnion,arrayRemove,serverTimestamp,Timestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const bn=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+const C=window.CFG||{};
+const DEMO=new URLSearchParams(location.search).has("demo");
+const ready=C.firebase&&C.firebase.apiKey&&!/^PASTE/.test(C.firebase.apiKey);
+let db=null; if(ready&&!DEMO){db=getFirestore(initializeApp(C.firebase));}
+$("#demo").style.display=DEMO?"block":"none";
+
+const NAMES={78:"আন-নাবা",79:"আন-নাযিআত",80:"আবাসা",81:"আত-তাকবীর",82:"আল-ইনফিতার",83:"আল-মুতাফফিফীন",84:"আল-ইনশিকাক",85:"আল-বুরূজ",86:"আত-তারিক",87:"আল-আ'লা",88:"আল-গাশিয়াহ",89:"আল-ফাজর",90:"আল-বালাদ",91:"আশ-শামস",92:"আল-লাইল",93:"আদ-দুহা",94:"আল-ইনশিরাহ",95:"আত-তীন",96:"আল-আলাক",97:"আল-কদর",98:"আল-বাইয়্যিনাহ",99:"আয-যিলযাল",100:"আল-আদিয়াত",101:"আল-কারিআহ",102:"আত-তাকাসুর",103:"আল-আসর",104:"আল-হুমাযাহ",105:"আল-ফীল",106:"কুরাইশ",107:"আল-মাউন",108:"আল-কাউসার",109:"আল-কাফিরুন",110:"আন-নাসর",111:"আল-লাহাব",112:"আল-ইখলাস",113:"আল-ফালাক",114:"আন-নাস"};
+const J30={78:40,79:46,80:42,81:29,82:19,83:36,84:25,85:22,86:17,87:19,88:26,89:30,90:20,91:15,92:21,93:11,94:8,95:8,96:19,97:5,98:8,99:8,100:11,101:11,102:8,103:3,104:9,105:5,106:4,107:7,108:3,109:6,110:3,111:5,112:4,113:5,114:6};
+const sname=n=>NAMES[n]?("সূরা "+NAMES[n]):("সূরা নং "+bn(n));
+function genPlan(order,rest7){
+  const study=[];for(let d=1;d<=90;d++)if(!(rest7&&d%7===0))study.push(d);
+  const flat=[];order.forEach(s=>{for(let a=1;a<=J30[s];a++)flat.push([s,a]);});
+  const N=flat.length,M=study.length,days=Array.from({length:90},()=>({segs:[]}));
+  study.forEach((d,k)=>{const i0=Math.floor(k*N/M),i1=Math.floor((k+1)*N/M);const segs=[];
+    for(let i=i0;i<i1;i++){const [s,a]=flat[i],L=segs[segs.length-1];if(L&&L.s===s&&L.b===a-1)L.b=a;else segs.push({s,a,b:a});}
+    days[d-1].segs=segs;});
+  return days;
+}
+let S={title:"৯০ দিনের কুরআন মুখস্থ চ্যালেঞ্জ",org:"TechCraft Digital Solutions",ustad:""},plan=null,me=null,code=null,sel=1,test=false,rep=3;
+
+/* ---------- helpers ---------- */
+const day0=ms=>{const d=new Date(ms);d.setHours(0,0,0,0);return d.getTime()};
+const curDay=()=>{const st=me.createdAt&&me.createdAt.toMillis?me.createdAt.toMillis():(me.createdAt||Date.now());return Math.max(1,Math.min(90,Math.floor((day0(Date.now())-day0(st))/864e5)+1));};
+function streak(){const done=new Set(me.done||[]);let k=Math.min(curDay(),90),s=0; if(!done.has(k))k--; while(k>=1&&done.has(k)){s++;k--;}return s;}
+const segText=g=>g.segs.length?g.segs.map(x=>`${sname(x.s)} · আয়াত ${bn(x.a)}${x.b>x.a?"–"+bn(x.b):""}`).join(" ; "):"পুনরাবৃত্তির দিন";
+
+/* ---------- quran text (from a public verified API) ---------- */
+const cache={};
+async function surah(n){
+  if(cache[n])return cache[n];
+  try{const l=localStorage.getItem("q90s"+n);if(l){cache[n]=JSON.parse(l);return cache[n];}}catch(e){}
+  const r=await fetch("https://api.alquran.cloud/v1/surah/"+n+"/quran-uthmani");
+  if(!r.ok)throw new Error("net");
+  const j=await r.json(),ay=j.data.ayahs.map(a=>({g:a.number,n:a.numberInSurah,t:a.text}));
+  // the API prefixes ayah 1 with the bismillah; keep it as a separate header
+  let bism="";
+  if(n!==1&&n!==9&&ay[0]){const strip=s=>s.replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g,"").replace(/\u0671/g,"\u0627");
+    const w=ay[0].t.split(" ");if(w.length>4&&strip(w[0])==="\u0628\u0633\u0645"){bism=w.slice(0,4).join(" ");ay[0].t=w.slice(4).join(" ");}}
+  cache[n]={ay,bism};try{localStorage.setItem("q90s"+n,JSON.stringify(cache[n]));}catch(e){}
+  return cache[n];
+}
+
+/* ---------- audio ---------- */
+const au=new Audio();let q=[],qi=0,rc=0;
+function stopAudio(){au.pause();q=[];document.querySelectorAll(".ay.on").forEach(e=>e.classList.remove("on"));}
+function playQ(list){stopAudio();q=list;qi=0;rc=0;nextA();}
+function nextA(){document.querySelectorAll(".ay.on").forEach(e=>e.classList.remove("on"));if(qi>=q.length)return;
+  const a=q[qi];const el=document.querySelector('.ay[data-g="'+a+'"]');if(el){el.classList.add("on");el.scrollIntoView({block:"nearest",behavior:"smooth"});}
+  au.src="https://cdn.islamic.network/quran/audio/128/ar.alafasy/"+a+".mp3";au.play().catch(()=>{});}
+au.onended=()=>{rc++;if(rc<rep){au.currentTime=0;au.play().catch(()=>{});}else{rc=0;qi++;nextA();}};
+
+/* ---------- rendering ---------- */
+function setRing(){const n=(me.done||[]).length;$("#arc").style.strokeDashoffset=326.7*(1-n/90);$("#pct").textContent=bn(Math.round(n/90*100))+"%";$("#pcs").textContent=bn(n)+"/৯০";}
+function renderTop(){
+  const n=(me.done||[]).length,cd=curDay();
+  $("#hi").textContent="আসসালামু আলাইকুম, "+me.name;
+  $("#sub").textContent=n>=90?"মাশাআল্লাহ! ৯০ দিনের সব পাঠ আপনি শেষ করেছেন।":"আজ দিন "+bn(cd)+"। ধীরে ধীরে, নিয়মিত।";
+  $("#s1").textContent="দিন "+bn(cd);$("#s2").textContent=bn(streak())+" দিন";$("#s3").textContent=bn(n);$("#s4").textContent=bn((me.appr||[]).length);setRing();
+  const b=[[1,"🌱","১ম দিন"],[7,"🔥","৭ দিন"],[30,"🌙","৩০ দিন"],[60,"⭐","৬০ দিন"],[90,"🏆","৯০ দিন"]];
+  $("#bds").innerHTML=b.map(([k,i,t])=>`<div class="bd ${n>=k?"on":""}"><i>${i}</i>${t}</div>`).join("");
+  const cb=$("#certbox");
+  if(me.certified&&me.certCode)cb.innerHTML=`<b>সম্পন্ন সনদ</b><p class="note" style="margin:6px 0 12px">উস্তাদ আপনার সনদ অনুমোদন করেছেন। সনদ নম্বর: <b style="color:var(--gold2)">${esc(me.certCode)}</b></p><button class="btn gold" id="scb" style="width:100%">সনদ দেখুন</button>`;
+  else if(n>=90)cb.innerHTML=`<b>সম্পন্ন সনদ</b><p class="note" style="margin-top:6px">আপনি সব দিন শেষ করেছেন। উস্তাদের অনুমোদনের অপেক্ষা করুন। তিনি শুনে অনুমোদন দিলে এখানে সনদ আসবে।</p>`;
+  else cb.innerHTML=`<b>সম্পন্ন সনদ</b><p class="note" style="margin-top:6px">৯০ দিনের সব পাঠ শেষ করলে এবং উস্তাদ অনুমোদন দিলে আপনি সনদ পাবেন। এখন বাকি ${bn(90-n)} দিন।</p>`;
+  const sc=$("#scb");if(sc)sc.onclick=openCert;
+}
+function renderDays(){
+  const cd=curDay(),done=new Set(me.done||[]),ap=new Set(me.appr||[]);let h="";
+  for(let d=1;d<=90;d++){const g=plan[d-1],rest=!g.segs.length;
+    h+=`<button class="d ${done.has(d)?"done":""} ${ap.has(d)?"appr":""} ${d===cd?"today":""} ${d>cd?"lock":""} ${d===sel?"sel":""} ${rest?"rest":""}" data-day="${d}" aria-label="দিন ${d}">${rest?"পু":bn(d)}</button>`;}
+  $("#days").innerHTML=h;
+  const r=[];[1,3,7].forEach(k=>{const d=sel-k;if(d>=1&&plan[d-1].segs.length)r.push(d);});
+  $("#rev").innerHTML=r.length?r.map(d=>`<button class="chip" data-day="${d}">দিন ${bn(d)} · ${esc(plan[d-1].segs.map(x=>NAMES[x.s]||x.s).join(", "))}</button>`).join(""):'<span class="note">আজ আলাদা কোনো পুনরাবৃত্তি নেই।</span>';
+}
+async function renderLesson(){
+  stopAudio();const g=plan[sel-1],cd=curDay(),done=(me.done||[]).includes(sel),L=$("#lesson");
+  let h=`<h3>দিন ${bn(sel)} ${sel===cd?"· আজকের পাঠ":""}</h3><p class="seg">${esc(segText(g))}</p>`;
+  if(!g.segs.length){L.innerHTML=h+`<p class="note" style="font-size:15px;margin:12px 0">আজ নতুন পাঠ নেই। গত সপ্তাহের সব পাঠ আবার শুনে শুনে পড়ুন।</p>`+doneBtn(done,cd);bindDone();return;}
+  h+=`<div class="ctl"><button class="btn gold sm" id="pall">▶ সব শুনুন</button><button class="btn ghost sm" id="pstop">■ থামান</button><label style="margin:0">বার</label><select id="rep">${[1,3,5,10].map(v=>`<option ${v===rep?"selected":""} value="${v}">${bn(v)} বার</option>`).join("")}</select><button class="btn ${test?"em":"ghost"} sm" id="ptest">🧠 পরীক্ষা মোড ${test?"চালু":""}</button></div><div id="ayl" class="${test?"hide":""}"><p class="note">লোড হচ্ছে…</p></div>`+doneBtn(done,cd);
+  L.innerHTML=h;bindDone();
+  $("#rep").onchange=e=>{rep=+e.target.value};$("#pstop").onclick=stopAudio;
+  $("#ptest").onclick=()=>{test=!test;renderLesson();};
+  const my=sel;let all=[];
+  try{
+    let html="";
+    for(const x of g.segs){const s=await surah(x.s);if(my!==sel)return;
+      if(s.bism&&x.a===1)html+=`<div class="bism">${esc(s.bism)}</div>`;
+      s.ay.filter(a=>a.n>=x.a&&a.n<=x.b).forEach(a=>{all.push(a.g);html+=`<div class="ay" data-g="${a.g}"><span class="n">${bn(a.n)}</span><div class="t" lang="ar">${esc(a.t)}</div><button class="p" data-play="${a.g}" aria-label="আয়াত ${a.n} শুনুন">▶</button></div>`;});}
+    $("#ayl").innerHTML=html;
+    $("#pall").onclick=()=>playQ(all);
+    $("#ayl").onclick=e=>{const p=e.target.closest("[data-play]");if(p){const k=+p.dataset.play;playQ(all.slice(all.indexOf(k)));return;}
+      const t=e.target.closest(".t");if(t&&test)t.classList.toggle("rev");};
+  }catch(e){if(my===sel)$("#ayl").innerHTML='<p class="msg bad">কুরআনের লেখা লোড হয়নি। ইন্টারনেট দেখে আবার চেষ্টা করুন।</p>';}
+}
+function doneBtn(done,cd){const lock=sel>cd;return `<button class="btn ${done?"ghost":"gold"}" id="dbtn" style="margin-top:14px;width:100%" ${lock?"disabled":""}>${lock?"এই দিন এখনো আসেনি":done?"✓ মুখস্থ হয়েছে (বাতিল করতে চাপুন)":"✓ আজকের পাঠ মুখস্থ হয়েছে"}</button>`;}
+function bindDone(){const b=$("#dbtn");if(!b)return;b.onclick=async()=>{
+  const has=(me.done||[]).includes(sel);me.done=has?me.done.filter(x=>x!==sel):[...(me.done||[]),sel];
+  if(db&&!DEMO){try{await updateDoc(doc(db,"hf_students",code),{done:has?arrayRemove(sel):arrayUnion(sel),last:serverTimestamp()});}catch(e){alert("সেভ হয়নি, ইন্টারনেট দেখুন।");me.done=has?[...me.done,sel]:me.done.filter(x=>x!==sel);}}
+  renderTop();renderDays();renderLesson();};}
+
+/* ---------- certificate ---------- */
+async function drawCert(cv,d){
+  await document.fonts.load('700 80px "Hind Siliguri"');await document.fonts.load('700 40px "Cormorant Garamond"');
+  const c=cv.getContext("2d"),W=1600,H=1130;c.clearRect(0,0,W,H);
+  const g=c.createLinearGradient(0,0,W,H);g.addColorStop(0,"#06130f");g.addColorStop(1,"#0d2a22");c.fillStyle=g;c.fillRect(0,0,W,H);
+  c.strokeStyle="#d8b45a";c.lineWidth=6;c.strokeRect(40,40,W-80,H-80);c.lineWidth=2;c.strokeRect(62,62,W-124,H-124);
+  c.fillStyle="rgba(216,180,90,.035)";for(let x=120;x<W-100;x+=90)for(let y=120;y<H-100;y+=90){c.save();c.translate(x,y);c.rotate(Math.PI/4);c.fillRect(-14,-14,28,28);c.restore();c.fillRect(x-20,y-20,40,40);}
+  c.textAlign="center";c.fillStyle="#f2d98f";
+  c.font='700 34px "Cormorant Garamond"';c.fillText("Q U R A N 9 0",W/2,150);
+  c.font='700 92px "Hind Siliguri"';c.fillText("সম্পন্ন সনদ",W/2,290);
+  c.fillStyle="#cfe3da";c.font='500 34px "Hind Siliguri"';c.fillText("এই মর্মে প্রত্যয়ন করা যাচ্ছে যে",W/2,375);
+  c.fillStyle="#fff";let fs=100;c.font='700 '+fs+'px "Hind Siliguri"';while(c.measureText(d.name).width>1200&&fs>50){fs-=4;c.font='700 '+fs+'px "Hind Siliguri"';}
+  c.fillText(d.name,W/2,500);
+  c.strokeStyle="#d8b45a";c.lineWidth=2;c.beginPath();c.moveTo(W/2-330,530);c.lineTo(W/2+330,530);c.stroke();
+  c.fillStyle="#cfe3da";c.font='500 38px "Hind Siliguri"';
+  const l1=(d.scope?d.scope+" মুখস্থ করার":"কুরআনের নির্বাচিত অংশ মুখস্থ করার");
+  c.fillText(l1,W/2,620);c.fillText("৯০ দিনের চ্যালেঞ্জ সফলভাবে সম্পন্ন করেছে।",W/2,675);
+  c.fillStyle="#f2d98f";c.font='600 30px "Hind Siliguri"';c.fillText("উস্তাদের যাচাইয়ের মাধ্যমে অনুমোদিত",W/2,740);
+  // seal
+  c.beginPath();c.arc(W/2,900,70,0,7);c.fillStyle="#d8b45a";c.fill();c.beginPath();c.arc(W/2,900,58,0,7);c.strokeStyle="#06130f";c.lineWidth=3;c.stroke();
+  c.fillStyle="#06130f";c.font='700 60px "Hind Siliguri"';c.fillText("✓",W/2,922);
+  c.textAlign="left";c.fillStyle="#cfe3da";c.font='500 28px "Hind Siliguri"';c.fillText("তারিখ: "+d.date,150,930);
+  c.textAlign="right";c.strokeStyle="#d8b45a";c.beginPath();c.moveTo(W-460,925);c.lineTo(W-150,925);c.stroke();
+  c.fillText((d.ustad||"উস্তাদ / যাচাইকারী"),W-150,965);
+  c.textAlign="center";c.fillStyle="#8fa89f";c.font='500 24px "Hind Siliguri"';
+  c.fillText("সনদ নম্বর: "+d.code+"   ·   যাচাই করুন: "+location.origin+location.pathname+"?verify="+d.code,W/2,1010);
+  c.fillText("এই সনদ চ্যালেঞ্জ সম্পন্ন করার স্বীকৃতি। এটি হাফেজ উপাধির সনদ নয়।   "+(d.org||""),W/2,1043);
+}
+async function openCert(){
+  const d={name:me.name,code:me.certCode,date:"",scope:"",ustad:S.ustad,org:S.org};
+  try{const c=await getDoc(doc(db,"hf_cert",me.certCode));if(c.exists()){const x=c.data();d.scope=x.scope||"";d.date=x.dateText||"";}}catch(e){}
+  if(!d.date)d.date=bn(new Date().toLocaleDateString("bn-BD"));
+  $("#sd").showModal();await drawCert($("#cv"),d);
+}
+$("#dlp").onclick=()=>{const a=document.createElement("a");a.download="Quran90-certificate.png";a.href=$("#cv").toDataURL("image/png");a.click();};
+$("#prt").onclick=()=>{const im=document.createElement("img");im.src=$("#cv").toDataURL("image/png");im.style.cssText="width:100%";const p=$("#printCert");p.innerHTML="";p.appendChild(im);p.style.display="block";window.print();p.style.display="none";};
+
+/* ---------- boot / auth-less login by secret code ---------- */
+function showDash(){
+  $("#land").style.display="none";$("#dash").style.display="block";$("#lbtn").hidden=false;
+  sel=Math.min(curDay(),90);renderTop();renderDays();renderLesson();window.scrollTo(0,0);
+}
+async function loadCommon(){
+  if(DEMO){plan=genPlan(Array.from({length:37},(_,i)=>114-i),true);return;}
+  if(!ready)return;
+  try{const s=await getDoc(doc(db,"hf_settings","main"));if(s.exists())S={...S,...s.data()};}catch(e){}
+  try{const p=await getDoc(doc(db,"hf_plan","main"));if(p.exists())plan=p.data().days;}catch(e){}
+  $("#org").textContent=S.org||"";
+}
+async function enter(c){
+  if(!plan||plan.length<90){return "প্ল্যান এখনো তৈরি হয়নি। উস্তাদকে জানান।";}
+  const s=await getDoc(doc(db,"hf_students",c));if(!s.exists())return "এই কোডে কেউ নেই। কোডটা আবার দেখুন।";
+  me=s.data();code=c;try{localStorage.setItem("q90code",c);}catch(e){}showDash();return "";
+}
+$("#lb").onclick=async()=>{const m=$("#lm");m.className="msg";m.textContent="";
+  if(!ready){m.className="msg bad";m.textContent="সাইট এখনো চালু হয়নি।";return;}
+  const c=$("#lc").value.trim().toLowerCase();if(c.length<8){m.className="msg bad";m.textContent="কোডটা পুরো লিখুন।";return;}
+  try{const e=await enter(c);if(e){m.className="msg bad";m.textContent=e;}}catch(e){m.className="msg bad";m.textContent="ঢোকা যায়নি। ইন্টারনেট দেখুন।";}};
+$("#rb").onclick=async()=>{const m=$("#rm");m.className="msg";m.textContent="";
+  if(!ready){m.className="msg bad";m.textContent="সাইট এখনো চালু হয়নি।";return;}
+  const name=$("#rn").value.trim(),cls=$("#rc").value.trim();
+  if(name.length<2){m.className="msg bad";m.textContent="নাম লিখুন (কমপক্ষে ২ অক্ষর)।";return;}
+  if(!plan||plan.length<90){m.className="msg bad";m.textContent="প্ল্যান এখনো তৈরি হয়নি। উস্তাদকে জানান।";return;}
+  const al="23456789abcdefghjkmnpqrstuvwxyz";let c="";const r=crypto.getRandomValues(new Uint8Array(12));for(const v of r)c+=al[v%al.length];
+  try{await setDoc(doc(db,"hf_students",c),{name,cls,createdAt:serverTimestamp(),done:[],appr:[],certified:false,last:serverTimestamp()});
+    const s=await getDoc(doc(db,"hf_students",c));me=s.data();code=c;try{localStorage.setItem("q90code",c);}catch(e){}
+    $("#codeV").textContent=c;$("#cd").showModal();
+  }catch(e){m.className="msg bad";m.textContent="যোগ হয়নি, ইন্টারনেট দেখে আবার চেষ্টা করুন।";}};
+$("#go").onclick=()=>{$("#cd").close();showDash();};
+$("#cpy").onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText($("#codeV").textContent);$("#cpy").textContent="কপি হয়েছে ✓";};
+$("#lbtn").onclick=()=>{try{localStorage.removeItem("q90code");}catch(e){}stopAudio();location.href=location.pathname;};
+$("#vbtn").onclick=()=>$("#vd").showModal();
+$("#vb").onclick=async()=>{const m=$("#vm");m.className="msg";const c=$("#vc").value.trim().toUpperCase();
+  if(!db){m.className="msg bad";m.textContent="যাচাই এখন সম্ভব নয়।";return;}
+  try{const d=await getDoc(doc(db,"hf_cert",c));
+    if(d.exists()){const x=d.data();m.className="msg ok";m.textContent="✓ সনদটি সঠিক। "+x.name+(x.scope?" · "+x.scope:"")+" · "+(x.dateText||"");}
+    else{m.className="msg bad";m.textContent="এই নম্বরে কোনো সনদ পাওয়া যায়নি।";}}catch(e){m.className="msg bad";m.textContent="যাচাই করা যায়নি।";}};
+document.addEventListener("click",e=>{
+  const c=e.target.closest("[data-close]");if(c){c.closest("dialog").close();return;}
+  const d=e.target.closest("[data-day]");if(d&&me){const n=+d.dataset.day;sel=n;renderDays();renderLesson();document.getElementById("lesson").scrollIntoView({behavior:"smooth",block:"start"});}
+});
+(async()=>{
+  await loadCommon();
+  const v=new URLSearchParams(location.search).get("verify");if(v){$("#vc").value=v;$("#vd").showModal();}
+  if(DEMO){me={name:"ডেমো ছাত্র",cls:"",done:[1,2,3],appr:[1,2],createdAt:Date.now()-3*864e5};code="demo";showDash();return;}
+  let sc=null;try{sc=localStorage.getItem("q90code");}catch(e){}
+  if(sc&&ready){try{await enter(sc);}catch(e){}}
+})();
+</script>
+</body>
+</html>

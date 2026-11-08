@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#06100e">
+<title>উস্তাদ প্যানেল · QURAN90</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#06100e;--panel:#0c1a17;--panel2:#11231f;--line:#1f3b34;--em:#22a07c;--em2:#5fd3ae;--gold:#d8b45a;--gold2:#f2d98f;--text:#eef3ef;--muted:#8fa89f;--bad:#e5645a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--text);font-family:"Hind Siliguri",system-ui,sans-serif;line-height:1.55;min-height:100vh}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.logo{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:23px;letter-spacing:.12em;color:var(--gold2)}
+.btn{border:1px solid var(--line);border-radius:9px;padding:9px 16px;font-weight:600;cursor:pointer;font-size:14.5px;background:var(--panel2)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1b1405;border:0}
+.btn.red{color:var(--bad)}.btn.sm{padding:5px 11px;font-size:13px}.btn[disabled]{opacity:.45;cursor:not-allowed}
+input,select,textarea{background:var(--ink);border:1px solid var(--line);border-radius:9px;padding:9px 12px;width:100%}
+textarea{min-height:80px;resize:vertical}
+label{display:block;font-size:13.5px;color:var(--muted);margin:12px 0 4px}
+.msg{font-size:14px;min-height:20px;margin-top:8px}.msg.bad{color:var(--bad)}.msg.ok{color:var(--em2)}
+#login{max-width:380px;margin:12vh auto;padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+#login h1{font-size:20px;margin:6px 0 10px}
+#app{display:none}
+aside{position:fixed;inset:0 auto 0 0;width:210px;background:var(--panel);border-right:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:4px;z-index:30}
+aside .logo{padding:2px 10px 14px}
+.nav{background:none;border:0;text-align:left;padding:10px 12px;border-radius:9px;cursor:pointer;color:var(--muted);font-size:15px}
+.nav.on{background:var(--panel2);color:var(--gold2);font-weight:600}
+main{margin-left:210px;padding:24px 26px 70px;max-width:1000px}
+main h2{font-size:22px;margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat small{color:var(--muted);font-size:13px}.stat b{display:block;font-size:28px;color:var(--gold2)}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.row{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.row:last-child{border:0}
+.row .t{flex:1;min-width:0}.row small{color:var(--muted)}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:6px;margin-top:10px}
+.d{aspect-ratio:1;border-radius:9px;border:1px solid var(--line);background:var(--panel2);font-size:13px;cursor:pointer;color:var(--muted)}
+.d.done{background:rgba(216,180,90,.25);color:var(--gold2);border-color:var(--gold)}
+.d.appr{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1b1405;border:0;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--muted);font-weight:500}
+.tw{overflow-x:auto}
+.top{display:none}
+@media(max-width:820px){aside{transform:translateX(-100%);transition:transform .2s}aside.open{transform:none}main{margin-left:0;padding:70px 14px 60px}
+.top{display:flex;position:fixed;inset:0 0 auto 0;height:54px;background:var(--panel);border-bottom:1px solid var(--line);align-items:center;gap:12px;padding:0 12px;z-index:20}.two{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){aside{transition:none}}
+</style>
+<script src="config.js"></script>
+</head>
+<body>
+<div id="login"><div class="logo">QURAN90</div><h1>উস্তাদ লগইন</h1>
+<label for="em">ইমেইল</label><input id="em" type="email" autocomplete="username">
+<label for="pw">পাসওয়ার্ড</label><input id="pw" type="password" autocomplete="current-password">
+<button class="btn gold" id="lg" style="width:100%;margin-top:16px">ঢুকুন</button><div class="msg" id="lm"></div></div>
+
+<div id="app">
+<div class="top"><button class="btn sm" id="mb" aria-label="মেনু">☰</button><span class="logo">QURAN90</span></div>
+<aside id="sb"><div class="logo">QURAN90</div>
+<button class="nav on" data-p="dash">📊 ড্যাশবোর্ড</button><button class="nav" data-p="plan">🗓 ৯০ দিনের প্ল্যান</button><button class="nav" data-p="stu">👥 ছাত্র-ছাত্রী</button><button class="nav" data-p="set">⚙ সেটিংস</button><button class="nav" id="out" style="margin-top:auto">🚪 লগআউট</button></aside>
+<main>
+<section id="p-dash"><h2>ড্যাশবোর্ড</h2>
+<div class="stats"><div class="stat"><small>মোট ছাত্র</small><b id="a1">০</b></div><div class="stat"><small>৭ দিনে সক্রিয়</small><b id="a2">০</b></div><div class="stat"><small>৯০ দিন শেষ</small><b id="a3">০</b></div><div class="stat"><small>সনদ দেওয়া</small><b id="a4">০</b></div></div>
+<div class="box"><b>অনুমোদনের অপেক্ষায় (৯০ দিন শেষ, সনদ বাকি)</b><div id="pend" style="margin-top:8px"></div></div></section>
+
+<section id="p-plan" hidden><h2>৯০ দিনের প্ল্যান</h2>
+<div class="box"><b>প্ল্যান বানান</b><p style="color:var(--muted);font-size:13.5px;margin-top:4px">কোন অংশ মুখস্থ হবে সেটা উস্তাদ ঠিক করবেন। নিচে সূরার নম্বর কমা দিয়ে ক্রমে লিখুন। ৯০ দিনে সমানভাবে ভাগ হয়ে যাবে। এই সংস্করণে পারা ৩০ (সূরা ৭৮ থেকে ১১৪) তৈরি আছে।</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn sm" id="pr1">পারা ৩০: ছোট সূরা আগে (১১৪ → ৭৮)</button><button class="btn sm" id="pr2">পারা ৩০: ক্রমানুসারে (৭৮ → ১১৪)</button></div>
+<label for="ord">সূরার ক্রম (শুধু ৭৮ থেকে ১১৪)</label><textarea id="ord" style="min-height:70px"></textarea>
+<label style="display:flex;gap:8px;align-items:center;color:var(--text)"><input type="checkbox" id="r7" checked style="width:auto"> প্রতি ৭ম দিন শুধু পুনরাবৃত্তি (নতুন পাঠ নেই)</label>
+<div style="display:flex;gap:10px;margin-top:14px"><button class="btn" id="pgen">প্ল্যান বানিয়ে দেখুন</button><button class="btn gold" id="psave" disabled>সেভ করুন</button></div><div class="msg" id="pm"></div></div>
+<div class="box"><b>দিন বদলান</b><div class="two"><div><label for="ed">দিন (১-৯০)</label><input id="ed" type="number" min="1" max="90" value="1"></div><div></div>
+<div><label for="es">সূরা নং</label><input id="es" type="number" min="78" max="114"></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label for="ea">আয়াত থেকে</label><input id="ea" type="number" min="1"></div><div><label for="eb">আয়াত পর্যন্ত</label><input id="eb" type="number" min="1"></div></div></div>
+<div style="display:flex;gap:10px;margin-top:12px"><button class="btn" id="eset">এই দিনে বসান</button><button class="btn" id="eclr">এই দিন ফাঁকা (পুনরাবৃত্তি)</button></div></div>
+<div class="box"><b>বর্তমান প্ল্যান</b><div class="tw" id="pview" style="margin-top:8px"></div></div></section>
+
+<section id="p-stu" hidden><h2>ছাত্র-ছাত্রী</h2><input id="sq" placeholder="নাম দিয়ে খুঁজুন…" style="max-width:340px"><div class="box" id="slist"></div><div class="box" id="sdet" hidden></div></section>
+
+<section id="p-set" hidden><h2>সেটিংস</h2><div class="box">
+<label for="s_t">চ্যালেঞ্জের নাম</label><input id="s_t" maxlength="80">
+<label for="s_o">প্রতিষ্ঠানের নাম (সনদে ও ফুটারে)</label><input id="s_o" maxlength="60">
+<label for="s_u">উস্তাদ / যাচাইকারীর নাম (সনদে সইয়ের নিচে)</label><input id="s_u" maxlength="60">
+<button class="btn gold" id="ss" style="margin-top:14px">সেভ করুন</button><div class="msg" id="sm"></div></div></section>
+</main></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,signInWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,collection,getDocs,query,orderBy,limit,doc,getDoc,setDoc,updateDoc,deleteDoc,arrayUnion,arrayRemove,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const bn=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+const C=window.CFG||{};
+const ok=C.firebase&&C.firebase.apiKey&&!/^PASTE/.test(C.firebase.apiKey)&&C.adminEmail&&!/^PASTE/.test(C.adminEmail);
+if(!ok){$("#lm").className="msg bad";$("#lm").textContent="config.js এ Firebase-এর তথ্য আর অ্যাডমিন ইমেইল বসাতে হবে।";$("#lg").disabled=true;}
+let auth,db,students=[],plan=null,draft=null,cur=null;
+if(ok){const app=initializeApp(C.firebase);auth=getAuth(app);db=getFirestore(app);}
+const NAMES={78:"আন-নাবা",79:"আন-নাযিআত",80:"আবাসা",81:"আত-তাকবীর",82:"আল-ইনফিতার",83:"আল-মুতাফফিফীন",84:"আল-ইনশিকাক",85:"আল-বুরূজ",86:"আত-তারিক",87:"আল-আ'লা",88:"আল-গাশিয়াহ",89:"আল-ফাজর",90:"আল-বালাদ",91:"আশ-শামস",92:"আল-লাইল",93:"আদ-দুহা",94:"আল-ইনশিরাহ",95:"আত-তীন",96:"আল-আলাক",97:"আল-কদর",98:"আল-বাইয়্যিনাহ",99:"আয-যিলযাল",100:"আল-আদিয়াত",101:"আল-কারিআহ",102:"আত-তাকাসুর",103:"আল-আসর",104:"আল-হুমাযাহ",105:"আল-ফীল",106:"কুরাইশ",107:"আল-মাউন",108:"আল-কাউসার",109:"আল-কাফিরুন",110:"আন-নাসর",111:"আল-লাহাব",112:"আল-ইখলাস",113:"আল-ফালাক",114:"আন-নাস"};
+const J30={78:40,79:46,80:42,81:29,82:19,83:36,84:25,85:22,86:17,87:19,88:26,89:30,90:20,91:15,92:21,93:11,94:8,95:8,96:19,97:5,98:8,99:8,100:11,101:11,102:8,103:3,104:9,105:5,106:4,107:7,108:3,109:6,110:3,111:5,112:4,113:5,114:6};
+const sname=n=>NAMES[n]?("সূরা "+NAMES[n]):("সূরা নং "+bn(n));
+function genPlan(order,rest7){
+  const study=[];for(let d=1;d<=90;d++)if(!(rest7&&d%7===0))study.push(d);
+  const flat=[];order.forEach(s=>{for(let a=1;a<=J30[s];a++)flat.push([s,a]);});
+  const N=flat.length,M=study.length,days=Array.from({length:90},()=>({segs:[]}));
+  study.forEach((d,k)=>{const i0=Math.floor(k*N/M),i1=Math.floor((k+1)*N/M);const segs=[];
+    for(let i=i0;i<i1;i++){const [s,a]=flat[i],L=segs[segs.length-1];if(L&&L.s===s&&L.b===a-1)L.b=a;else segs.push({s,a,b:a});}
+    days[d-1].segs=segs;});
+  return days;
+}
+const segText=g=>g.segs.length?g.segs.map(x=>`${sname(x.s)} ${bn(x.a)}${x.b>x.a?"–"+bn(x.b):""}`).join("; "):"পুনরাবৃত্তি";
+
+async function login(){const m=$("#lm");m.className="msg";m.textContent="";
+  try{await signInWithEmailAndPassword(auth,$("#em").value.trim(),$("#pw").value);}catch(e){m.className="msg bad";m.textContent="ইমেইল বা পাসওয়ার্ড ঠিক নেই।";}}
+if(ok){$("#lg").onclick=login;$("#pw").addEventListener("keydown",e=>{if(e.key==="Enter")login();});
+  onAuthStateChanged(auth,async u=>{
+    if(u&&u.email&&u.email.toLowerCase()===C.adminEmail.toLowerCase()){$("#login").style.display="none";$("#app").style.display="block";await refresh();}
+    else{if(u){await signOut(auth);$("#lm").className="msg bad";$("#lm").textContent="এই ইমেইল অ্যাডমিন নয়।";}$("#login").style.display="block";$("#app").style.display="none";}});
+  $("#out").onclick=()=>signOut(auth);}
+function go(p){document.querySelectorAll("main section").forEach(s=>s.hidden=s.id!=="p-"+p);document.querySelectorAll(".nav[data-p]").forEach(b=>b.classList.toggle("on",b.dataset.p===p));$("#sb").classList.remove("open");if(p==="set")loadSet();}
+document.querySelectorAll(".nav[data-p]").forEach(b=>b.onclick=()=>go(b.dataset.p));$("#mb").onclick=()=>$("#sb").classList.toggle("open");
+
+async function refresh(){
+  const [s,p]=await Promise.all([getDocs(query(collection(db,"hf_students"),orderBy("createdAt","desc"),limit(500))),getDoc(doc(db,"hf_plan","main"))]);
+  students=s.docs.map(d=>({id:d.id,...d.data()}));plan=p.exists()?p.data().days:null;drawDash();drawPlan();drawStu();
+}
+function drawDash(){
+  const wk=Date.now()-7*864e5;
+  $("#a1").textContent=bn(students.length);
+  $("#a2").textContent=bn(students.filter(x=>x.last&&x.last.toMillis&&x.last.toMillis()>wk).length);
+  $("#a3").textContent=bn(students.filter(x=>(x.done||[]).length>=90).length);
+  $("#a4").textContent=bn(students.filter(x=>x.certified).length);
+  const pend=students.filter(x=>(x.done||[]).length>=90&&!x.certified);
+  $("#pend").innerHTML=pend.length?pend.map(x=>`<div class="row"><div class="t"><b>${esc(x.name)}</b> <small>${esc(x.cls||"")}</small></div><button class="btn sm gold" data-open="${x.id}">খুলুন</button></div>`).join(""):'<p style="color:var(--muted)">এখন কেউ অপেক্ষায় নেই।</p>';
+}
+/* plan */
+function drawPlan(){
+  const v=draft||plan;
+  $("#pview").innerHTML=v?`<table><tr><th>দিন</th><th>পাঠ</th></tr>${v.map((g,i)=>`<tr><td>${bn(i+1)}</td><td>${esc(segText(g))}</td></tr>`).join("")}</table>`:'<p style="color:var(--muted)">এখনো কোনো প্ল্যান নেই।</p>';
+}
+const rev=Array.from({length:37},(_,i)=>114-i),fwd=Array.from({length:37},(_,i)=>78+i);
+$("#pr1").onclick=()=>$("#ord").value=rev.join(",");$("#pr2").onclick=()=>$("#ord").value=fwd.join(",");
+$("#pgen").onclick=()=>{const m=$("#pm");m.className="msg";
+  const o=$("#ord").value.split(/[,\s]+/).map(Number).filter(Boolean);
+  if(!o.length||o.some(n=>!J30[n])){m.className="msg bad";m.textContent="সূরার ক্রমে শুধু ৭৮ থেকে ১১৪ এর নম্বর কমা দিয়ে লিখুন।";return;}
+  if(new Set(o).size!==o.length){m.className="msg bad";m.textContent="একই সূরা দুবার আছে।";return;}
+  draft=genPlan(o,$("#r7").checked);$("#psave").disabled=false;m.className="msg ok";m.textContent="প্ল্যান তৈরি হয়েছে, নিচে দেখুন। ঠিক থাকলে সেভ করুন।";drawPlan();};
+$("#psave").onclick=async()=>{const m=$("#pm");try{await setDoc(doc(db,"hf_plan","main"),{days:draft,updated:serverTimestamp()});plan=draft;draft=null;$("#psave").disabled=true;m.className="msg ok";m.textContent="প্ল্যান সেভ হয়েছে।";drawPlan();}catch(e){m.className="msg bad";m.textContent="সেভ হয়নি। Firebase Rules দেখুন।";}};
+async function savePlanEdit(days,msg){const m=$("#pm");try{await setDoc(doc(db,"hf_plan","main"),{days,updated:serverTimestamp()});plan=days;m.className="msg ok";m.textContent=msg;drawPlan();}catch(e){m.className="msg bad";m.textContent="সেভ হয়নি।";}}
+$("#eset").onclick=()=>{const d=+$("#ed").value,s=+$("#es").value,a=+$("#ea").value,b=+$("#eb").value,m=$("#pm");
+  if(!plan){m.className="msg bad";m.textContent="আগে প্ল্যান সেভ করুন।";return;}
+  if(!(d>=1&&d<=90)||!J30[s]||a<1||b<a||b>J30[s]){m.className="msg bad";m.textContent="দিন, সূরা বা আয়াতের নম্বর ঠিক নেই (সূরা ৭৮-১১৪)।";return;}
+  const x=JSON.parse(JSON.stringify(plan));x[d-1]={segs:[{s,a,b}]};savePlanEdit(x,"দিন "+bn(d)+" বদলানো হয়েছে।");};
+$("#eclr").onclick=()=>{const d=+$("#ed").value,m=$("#pm");if(!plan||!(d>=1&&d<=90))return;const x=JSON.parse(JSON.stringify(plan));x[d-1]={segs:[]};savePlanEdit(x,"দিন "+bn(d)+" এখন পুনরাবৃত্তির দিন।");};
+/* students */
+function drawStu(){
+  const q=$("#sq").value.trim().toLowerCase();
+  const l=students.filter(x=>!q||String(x.name).toLowerCase().includes(q));
+  $("#slist").innerHTML=l.length?l.map(x=>`<div class="row"><div class="t"><b>${esc(x.name)}</b> <small>${esc(x.cls||"")} · মুখস্থ ${bn((x.done||[]).length)} · অনুমোদিত ${bn((x.appr||[]).length)}${x.certified?" · সনদ ✓":""}</small></div><button class="btn sm" data-open="${x.id}">খুলুন</button></div>`).join(""):'<p style="color:var(--muted)">কেউ নেই।</p>';
+}
+$("#sq").oninput=drawStu;
+function openStu(id){
+  cur=students.find(x=>x.id===id);if(!cur)return;go("stu");const d=new Set(cur.done||[]),a=new Set(cur.appr||[]);
+  let h=`<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><div><b style="font-size:18px">${esc(cur.name)}</b><br><small style="color:var(--muted)">${esc(cur.cls||"")} · মুখস্থ ${bn(d.size)}/৯০ · অনুমোদিত ${bn(a.size)}</small></div><button class="btn sm red" id="sdel">ছাত্র মুছুন</button></div>
+  <p style="color:var(--muted);font-size:13.5px;margin-top:10px">ছাত্র যে দিনের পাঠ "মুখস্থ" চিহ্ন দিয়েছে, ছায়া সোনালি। শুনে ঠিক পেলে সেই দিনে চাপ দিয়ে অনুমোদন করুন (পূর্ণ সোনালি)।</p><div class="days">`;
+  for(let i=1;i<=90;i++)h+=`<button class="d ${a.has(i)?"appr":d.has(i)?"done":""}" data-ap="${i}">${bn(i)}</button>`;
+  h+=`</div><div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">`;
+  if(cur.certified)h+=`<span style="color:var(--em2)">✓ সনদ দেওয়া হয়েছে: <b>${esc(cur.certCode)}</b></span>`;
+  else h+=`<button class="btn gold" id="scert" ${d.size<90?"disabled":""}>সনদ অনুমোদন করুন</button><span style="color:var(--muted);font-size:13.5px">${d.size<90?"৯০ দিন শেষ না হলে সনদ দেওয়া যাবে না।":"উস্তাদ নিজে শুনে নিশ্চিত হয়ে তারপর অনুমোদন করবেন।"}</span>`;
+  h+=`</div>`;
+  $("#sdet").hidden=false;$("#sdet").innerHTML=h;$("#sdet").scrollIntoView({behavior:"smooth"});
+}
+document.addEventListener("click",async e=>{
+  const o=e.target.closest("[data-open]");if(o){openStu(o.dataset.open);return;}
+  const p=e.target.closest("[data-ap]");
+  if(p&&cur){const n=+p.dataset.ap,has=(cur.appr||[]).includes(n);
+    try{await updateDoc(doc(db,"hf_students",cur.id),{appr:has?arrayRemove(n):arrayUnion(n)});
+      cur.appr=has?cur.appr.filter(x=>x!==n):[...(cur.appr||[]),n];openStu(cur.id);}catch(er){alert("সেভ হয়নি।");}return;}
+  if(e.target.id==="sdel"&&cur&&confirm("এই ছাত্রকে পুরোপুরি মুছে ফেলবেন?")){await deleteDoc(doc(db,"hf_students",cur.id));$("#sdet").hidden=true;cur=null;await refresh();return;}
+  if(e.target.id==="scert"&&cur){
+    if(!confirm(cur.name+" কে সম্পন্ন সনদ দেবেন? এটা ফেরানো যায় না।"))return;
+    const al="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let c="Q90-";const r=crypto.getRandomValues(new Uint8Array(8));for(const v of r)c+=al[v%al.length];
+    let scope="";
+    if(plan){const f=plan.flatMap(g=>g.segs);if(f.length){const a=f[0].s,b=f[f.length-1].s;scope=a===b?sname(a):(sname(a)+" থেকে "+sname(b).replace(/^সূরা /,"সূরা "));}}
+    const dateText=bn(new Date().toLocaleDateString("bn-BD"));
+    try{await setDoc(doc(db,"hf_cert",c),{name:cur.name,scope,dateText,date:serverTimestamp()});
+      await updateDoc(doc(db,"hf_students",cur.id),{certified:true,certCode:c});
+      cur.certified=true;cur.certCode=c;openStu(cur.id);drawDash();drawStu();}catch(er){alert("সনদ দেওয়া যায়নি। Firebase Rules দেখুন।");}
+  }
+});
+/* settings */
+async function loadSet(){const s=await getDoc(doc(db,"hf_settings","main"));const d=s.exists()?s.data():{};
+  $("#s_t").value=d.title||"৯০ দিনের কুরআন মুখস্থ চ্যালেঞ্জ";$("#s_o").value=d.org||"TechCraft Digital Solutions";$("#s_u").value=d.ustad||"";}
+$("#ss").onclick=async()=>{const m=$("#sm");try{await setDoc(doc(db,"hf_settings","main"),{title:$("#s_t").value.trim(),org:$("#s_o").value.trim(),ustad:$("#s_u").value.trim()});m.className="msg ok";m.textContent="সেভ হয়েছে।";}catch(e){m.className="msg bad";m.textContent="সেভ হয়নি। Firebase Rules দেখুন।";}};
+</script>
+</body>
+</html>
